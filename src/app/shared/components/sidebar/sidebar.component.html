@@ -1,0 +1,221 @@
+<div
+  class="flex flex-col items-center w-16 h-full overflow-hidden text-gray-400 bg-gray-900 transition-all duration-300 fixed z-10 top-0 left-0"
+  [ngClass]="{ 'w-64': isOpen, 'w-16': !isOpen }"
+  (mouseenter)="openSidebar()"
+  (mouseleave)="closeSidebar()"
+>
+  <div
+    class="flex flex-col items-center mt-3 border-t border-gray-700 w-full pt-3"
+  >
+    <a
+      class="flex items-center justify-center w-12 h-12 text-gray-200 hover:bg-gray-700 w-full px-3 mt-3 gap-2 rounded"
+      href="#"
+    >
+      <svg
+        class="w-6 h-6 stroke-current"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+        />
+      </svg>
+      <span
+        class="ml-2 text-sm font-bold transition-all duration-300"
+        [ngClass]="{
+          hidden: !isOpen,
+          'w-0': !isOpen,
+          'w-full': isOpen,
+          'text-[0px]': !isOpen,
+          'text-sm': isOpen,
+        }"
+        >Home</span
+      >
+    </a>
+    <a
+      class="flex items-center justify-center w-12 h-12 text-gray-200 hover:bg-gray-700 w-full px-3 mt-3 gap-2 rounded"
+      href="#"
+    >
+      <svg
+        class="w-6 h-6 stroke-current"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+        />
+      </svg>
+      <span
+        class="ml-2 text-sm font-bold transition-all duration-300"
+        [ngClass]="{
+          hidden: !isOpen,
+          'w-0': !isOpen,
+          'w-full': isOpen,
+          'text-[0px]': !isOpen,
+          'text-sm': isOpen,
+        }"
+        >Ordens de Serviço</span
+      >
+    </a>
+    <a
+      class="flex items-center justify-center w-12 h-12 text-gray-200 hover:bg-gray-700 w-full px-3 mt-3 gap-2 rounded"
+      href="#"
+    >
+      <svg
+        width="64px"
+        height="64px"
+        viewBox="0 0 1024 1024"
+        class="icon h-6 w-6 stroke-current"
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="#000000"
+      >
+        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+        <g
+          id="SVGRepo_tracerCarrier"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        ></g>
+        <g id="SVGRepo_iconCarrier">
+          <path
+            d="M512 505.6c-108.8 0-204.8-89.6-204.8-204.8S396.8 102.4 512 102.4c108.8 0 204.8 89.6 204.8 204.8S620.8 505.6 512 505.6z m0-358.4c-83.2 0-153.6 70.4-153.6 153.6s64 153.6 153.6 153.6 153.6-70.4 153.6-153.6S595.2 147.2 512 147.2z"
+            fill="#ffffff"
+          ></path>
+          <path
+            d="M832 864c0-211.2-147.2-377.6-326.4-377.6s-326.4 166.4-326.4 377.6H832z"
+            fill="#ffffff"
+          ></path>
+          <path
+            d="M832 889.6H147.2v-25.6c0-224 160-403.2 352-403.2s352 179.2 352 396.8v25.6l-19.2 6.4z m-633.6-51.2h608C800 659.2 665.6 512 505.6 512c-166.4 0-294.4 147.2-307.2 326.4zM710.4 499.2c-12.8 0-25.6-12.8-25.6-25.6s12.8-25.6 25.6-25.6c64 0 121.6-51.2 121.6-121.6 0-51.2-32-96-83.2-115.2-12.8-6.4-19.2-19.2-12.8-32 6.4-12.8 19.2-19.2 32-12.8 70.4 19.2 115.2 83.2 115.2 160-6.4 96-83.2 172.8-172.8 172.8z"
+            fill="#ffffff"
+          ></path>
+          <path
+            d="M966.4 806.4h-57.6c-12.8 0-25.6-12.8-25.6-25.6s12.8-25.6 25.6-25.6h32c-12.8-140.8-115.2-249.6-236.8-249.6-12.8 0-25.6-12.8-25.6-25.6s12.8-25.6 25.6-25.6c160 0 288 147.2 288 326.4v25.6h-25.6z"
+            fill="#ffffff"
+          ></path>
+          <path
+            d="M300.8 499.2c-6.4 0-6.4 0 0 0-44.8 0-89.6-12.8-121.6-44.8-32-32-44.8-76.8-44.8-121.6 0-70.4 44.8-134.4 115.2-160 12.8-6.4 25.6 0 32 12.8 6.4 12.8 0 25.6-12.8 32-57.6 19.2-89.6 64-89.6 115.2 0 32 12.8 64 32 83.2 19.2 25.6 51.2 32 83.2 38.4 19.2 0 25.6 12.8 25.6 25.6s-6.4 19.2-19.2 19.2z"
+            fill="#ffffff"
+          ></path>
+          <path
+            d="M89.6 806.4H12.8v-25.6c0-179.2 128-320 288-320 12.8 0 25.6 12.8 25.6 25.6s-12.8 25.6-25.6 25.6C179.2 512 76.8 620.8 64 761.6h32c12.8 0 25.6 12.8 25.6 25.6-6.4 6.4-12.8 19.2-32 19.2z"
+            fill="#ffffff"
+          ></path>
+        </g>
+      </svg>
+      <span
+        class="ml-2 text-sm font-bold transition-all duration-300"
+        [ngClass]="{
+          hidden: !isOpen,
+          'w-0': !isOpen,
+          'w-full': isOpen,
+          'text-[0px]': !isOpen,
+          'text-sm': isOpen,
+        }"
+        >Clientes</span
+      >
+    </a>
+  </div>
+  <div
+    class="flex flex-col items-center w-full h-full mt-2 border-t border-gray-700"
+  >
+    <a
+      class="flex items-center justify-center h-12 text-gray-200 hover:bg-gray-700 w-full px-3 mt-3 gap-2 rounded"
+      href="#"
+    >
+      <svg
+        class="h-6 w-6 strole-current"
+        version="1.1"
+        id="Layer_1"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        width="64px"
+        height="64px"
+        viewBox="0 0 31 32"
+        enable-background="new 0 0 31 32"
+        xml:space="preserve"
+        fill="#000000"
+      >
+        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+        <g
+          id="SVGRepo_tracerCarrier"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        ></g>
+        <g id="SVGRepo_iconCarrier">
+          <g>
+            <path
+              fill="#ffffff"
+              d="M9.01,21c0,1.103,0.897,2,2,2s2-0.897,2-2s-0.897-2-2-2S9.01,19.897,9.01,21z M11.01,20 c0.552,0,1,0.448,1,1s-0.448,1-1,1s-1-0.448-1-1S10.458,20,11.01,20z"
+            ></path>
+            <path
+              fill="#ffffff"
+              d="M17.919,21c0,1.103,0.897,2,2,2s2-0.897,2-2s-0.897-2-2-2S17.919,19.897,17.919,21z M19.919,20 c0.552,0,1,0.448,1,1s-0.448,1-1,1s-1-0.448-1-1S19.367,20,19.919,20z"
+            ></path>
+            <path
+              fill="#ffffff"
+              d="M17.977,25c-0.276,0-0.5,0.224-0.5,0.5c0,0.827-0.897,1.5-2,1.5s-2-0.673-2-1.5c0-0.276-0.224-0.5-0.5-0.5 s-0.5,0.224-0.5,0.5c0,1.379,1.346,2.5,3,2.5s3-1.121,3-2.5C18.477,25.224,18.253,25,17.977,25z"
+            ></path>
+            <path
+              fill="#ffffff"
+              d="M28.614,13.901c-0.786-5.103-4.356-9.268-9.23-10.779C18.996,1.34,17.394,0,15.478,0 c-1.922,0-3.53,1.348-3.912,3.138c-4.846,1.523-8.397,5.683-9.18,10.763C1.059,13.972,0,15.087,0,16.448C0,17.855,1.13,19,2.52,19 H3.5v0.738C3.5,26.499,8.883,32,15.5,32s12-5.501,12-12.262V19h0.98c1.39,0,2.52-1.145,2.52-2.552 C31,15.087,29.941,13.972,28.614,13.901z M26.5,19.738c0,6.21-4.935,11.262-11,11.262s-11-5.052-11-11.262V19h6.51h8.909H26.5 V19.738z M28.48,18H2.52C1.682,18,1,17.355,1,16.5S1.682,15,2.52,15h0.303c0.253,0,0.477-0.24,0.507-0.491 C3.907,9.762,7.5,5.768,11.5,4.219V6.5C11.5,6.776,11.724,7,12,7s0.5-0.224,0.5-0.5V3.956c0-0.123,0.011-0.24,0.026-0.359 c0.003-0.017-0.002-0.033,0-0.05C12.73,2.112,13.968,1,15.48,1c1.504,0,2.74,1.1,2.954,2.524c0.001,0.024,0.013,0.046,0.018,0.069 c0.015,0.12,0.048,0.239,0.048,0.364V6.5C18.5,6.776,18.724,7,19,7s0.5-0.224,0.5-0.5V4.203c4,1.537,7.612,5.537,8.193,10.306 C27.723,14.76,27.925,15,28.178,15h0.303c0.838,0,1.52,0.644,1.52,1.5S29.318,18,28.48,18z"
+            ></path>
+          </g>
+        </g>
+      </svg>
+      <span
+        class="ml-2 text-sm font-bold transition-all duration-300"
+        [ngClass]="{
+          hidden: !isOpen,
+          'w-0': !isOpen,
+          'w-full': isOpen,
+          'text-[0px]': !isOpen,
+          'text-sm': isOpen,
+        }"
+        >Técnicos</span
+      >
+    </a>
+
+    <a
+      class="flex items-center justify-center h-12 text-gray-200 hover:bg-gray-700 w-full px-3 mt-auto gap-2 rounded"
+      href="#"
+    >
+      <svg
+        class="w-6 h-6 stroke-current"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+        />
+      </svg>
+      <span
+        class="ml-2 text-sm font-bold transition-all duration-300"
+        [ngClass]="{
+          hidden: !isOpen,
+          'w-0': !isOpen,
+          'w-full': isOpen,
+          'text-[0px]': !isOpen,
+          'text-sm': isOpen,
+        }"
+        >Perfil</span
+      >
+    </a>
+  </div>
+  <!-- Component End  -->
+</div>
