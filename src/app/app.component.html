@@ -1,6 +1,10 @@
 <!--sidenar menu-->
-<!--router outlet-->
-<div class="min-h-screen bg-gray-100">
-  <router-outlet />
+<div class="flex min-h-screen bg-gray-100">
+  <!-- Sidebar Component -->
+  <app-sidebar></app-sidebar>
+
+  <div class="flex-1 p-4 ml-16">
+    <router-outlet />
+  </div>
 </div>
 <!--footer -->
