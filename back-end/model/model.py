@@ -5,6 +5,11 @@ class Database:
     self.conn = db_connection
     self.cursor = self.conn.cursor()
     print("Database initialized with connection.")
+  
+  def get_connection(self):
+    conn = self.conn
+    conn.row_factory = sqlite3.Row
+    return conn
 
   def create_clients_table(self):
     self.cursor.execute('''
@@ -42,3 +47,11 @@ class Database:
     ''')
     self.conn.commit()
     print("Table 'service_orders' created or already exists.")
+
+  def get_all_orders(self):
+    with self.get_connection() as conn:
+      cursor = conn.cursor()
+      cursor.execute('SELECT * FROM service_orders')
+      orders = cursor.fetchall()
+      print(f"Database: Retrieved {len(orders)} service orders.")
+      return [dict(order) for order in orders]
