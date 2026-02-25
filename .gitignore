@@ -1,0 +1,10 @@
+# Frontend (Angular)
+frontend/node_modules/
+frontend/dist/
+frontend/.angular/
+
+# Backend (MVC)
+backend/bin
+**/__pycache/
+*.pyc
+*.db
