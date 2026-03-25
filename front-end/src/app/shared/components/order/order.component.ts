@@ -6,10 +6,6 @@ import { Component, input } from '@angular/core';
   imports: [],
   templateUrl: './order.component.html',
   styleUrl: './order.component.css',
-  host: {
-    class:
-      'bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden',
-  },
 })
 export class OrderComponent {
   public technician = input<string>();

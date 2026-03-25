@@ -10,15 +10,22 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './sidebar.component.css',
 })
 export class SidebarComponent {
-  isOpen: boolean = false;
+  public isOpen: boolean = false;
+  public showText: boolean = false;
 
   public toggleSidebar(): void {
     this.isOpen = !this.isOpen;
   }
   public openSidebar(): void {
     this.isOpen = true;
+    setTimeout(() => {
+      this.showText = true;
+    }, 250);
   }
   public closeSidebar(): void {
-    this.isOpen = false;
+    this.showText = false;
+    setTimeout(() => {
+      this.isOpen = false;
+    }, 250);
   }
 }
