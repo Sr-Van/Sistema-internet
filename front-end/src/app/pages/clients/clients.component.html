@@ -1,1 +1,9 @@
-<p>clients works!</p>
+@for (client of clients; track $index) {
+  <app-client
+    [clientName]="client.name"
+    [nextBillDate]="client.nextBillDate"
+    [clientPlan]="client.plan"
+    [clientEmail]="client.email"
+    [isList]="isListView"
+  ></app-client>
+}
