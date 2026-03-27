@@ -1,9 +1,45 @@
-@for (client of clients; track $index) {
-  <app-client
-    [clientName]="client.name"
-    [nextBillDate]="client.nextBillDate"
-    [clientPlan]="client.plan"
-    [clientEmail]="client.email"
-    [isList]="isListView"
-  ></app-client>
-}
+<div id="buttons" class="flex justify-end mb-4">
+  <div
+    class="inline-flex bg-gray-50 border border-gray-200 rounded-full p-1 shadow-sm"
+  >
+    <button
+      class="px-4 py-1.5 text-sm font-medium rounded-full transition-colors"
+      [class]="
+        !isListView
+          ? 'bg-gray-200 text-gray-900 shadow-sm'
+          : 'text-gray-500 hover:text-gray-700 hover:bg-gray-100'
+      "
+      (click)="isListView = false"
+    >
+      Grid View
+    </button>
+    <button
+      class="px-4 py-1.5 text-sm font-medium rounded-full transition-colors"
+      [class]="
+        isListView
+          ? 'bg-gray-200 text-gray-900 shadow-sm'
+          : 'text-gray-500 hover:text-gray-700 hover:bg-gray-100'
+      "
+      (click)="isListView = true"
+    >
+      List View
+    </button>
+  </div>
+</div>
+<ol
+  [class]="
+    isListView
+      ? 'flex flex-col gap-2'
+      : 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'
+  "
+>
+  @for (client of clients; track $index) {
+    <app-client
+      [clientName]="client.name"
+      [nextBillDate]="client.nextBillDate"
+      [clientPlan]="client.plan"
+      [clientEmail]="client.email"
+      [isList]="isListView"
+    ></app-client>
+  }
+</ol>

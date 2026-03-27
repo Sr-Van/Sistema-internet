@@ -9,7 +9,7 @@ import { ClientComponent } from '../../shared/components/client/client.component
   styleUrl: './clients.component.css',
 })
 export class ClientsComponent {
-  public isListView = true;
+  public isListView = false;
 
   public clients = [
     {
