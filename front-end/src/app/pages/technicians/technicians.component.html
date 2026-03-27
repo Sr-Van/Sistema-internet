@@ -1,1 +1,10 @@
-<p>technicians works!</p>
+<ol class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+  @for (tech of technicians; track $index) {
+    <app-tech-card
+      [online]="tech.online"
+      [techName]="tech.techName"
+      [serviceArea]="tech.serviceArea"
+      [monthServices]="tech.monthServices"
+    ></app-tech-card>
+  }
+</ol>
