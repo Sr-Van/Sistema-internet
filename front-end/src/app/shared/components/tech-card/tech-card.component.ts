@@ -1,5 +1,5 @@
 import { UpperCasePipe } from '@angular/common';
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 
 @Component({
   selector: 'app-tech-card',
@@ -13,4 +13,6 @@ export class TechCardComponent {
   public techName = input.required<string>();
   public serviceArea = input.required<string>();
   public monthServices = input.required<number>();
+
+  public cardClick = output<void>();
 }

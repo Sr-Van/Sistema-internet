@@ -1,6 +1,7 @@
 <ol class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
   @for (tech of technicians; track $index) {
     <app-tech-card
+      (cardClick)="openModal(tech)"
       [online]="tech.online"
       [techName]="tech.techName"
       [serviceArea]="tech.serviceArea"
@@ -8,3 +9,103 @@
     ></app-tech-card>
   }
 </ol>
+
+@if (isModalOpen && selectedTechnician) {
+  <div
+    class="fixed inset-0 bg-black bg-opacity-50 z-40 flex items-center justify-center transition-opacity"
+    (click)="closeModal()"
+  >
+    <div
+      class="bg-white rounded-xl shadow-2xl p-6 w-full max-w-md m-4 z-50"
+      (click)="$event.stopPropagation()"
+    >
+      <div class="flex justify-between items-start mb-4">
+        <div class="flex items-center gap-3">
+          <div
+            class="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-700 font-bold text-lg shrink-0"
+          >
+            {{ selectedTechnician.techName[0] | uppercase }}
+          </div>
+          <div>
+            <h3 class="text-xl font-bold text-gray-900">
+              {{ selectedTechnician.techName }}
+            </h3>
+            @if (selectedTechnician.online) {
+              <p class="text-sm text-green-600 font-medium">is online</p>
+            } @else {
+              <p class="text-sm text-gray-500 font-medium">is offline</p>
+            }
+          </div>
+        </div>
+        <button
+          (click)="closeModal()"
+          class="text-gray-400 hover:text-gray-600 transition-colors"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            ></path>
+          </svg>
+        </button>
+      </div>
+
+      <div class="space-y-6">
+        <div>
+          <label
+            class="text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >Current OS</label
+          >
+          @if (selectedTechnician.currentOS) {
+            <div
+              class="mt-1 block w-full rounded-md border border-gray-300 bg-gray-100 px-3 py-2 text-center text-gray-700 shadow-sm sm:text-sm"
+            >
+              {{ selectedTechnician.currentOS }}
+            </div>
+          } @else {
+            <div
+              class="mt-1 block w-full rounded-md border border-green-200 bg-green-50 px-3 py-2 text-center text-green-800 shadow-sm sm:text-sm"
+            >
+              Available
+            </div>
+          }
+        </div>
+
+        <div>
+          <label
+            for="os-select"
+            class="text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >Demand a new open OS</label
+          >
+          <select
+            id="os-select"
+            [(ngModel)]="selectedOS"
+            class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+          >
+            <option value="">Select an open OS...</option>
+            @for (os of openOSList; track os.id) {
+              <option [value]="os.id">{{ os.description }}</option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div class="mt-8 flex justify-end">
+        <button
+          [disabled]="!selectedOS"
+          class="px-4 py-2 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-75 transition-colors disabled:cursor-not-allowed disabled:opacity-50"
+        >
+          Assign OS
+        </button>
+      </div>
+    </div>
+  </div>
+}
