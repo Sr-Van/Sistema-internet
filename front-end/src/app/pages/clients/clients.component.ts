@@ -15,20 +15,26 @@ export class ClientsComponent {
     {
       name: 'John Doe',
       nextBillDate: new Date(2024, 6, 15),
-      plan: 'Premium',
+      plan: '100MB/S - $100',
       email: 'john.doe@example.com',
+      CPF: '123.456.789-00',
+      phone: '(11) 98765-4321',
     },
     {
       name: 'Jane Smith',
       nextBillDate: new Date(2024, 7, 10),
-      plan: 'Basic',
+      plan: '50MB/S - $75',
       email: 'jane.smith@example.com',
+      CPF: '987.654.321-11',
+      phone: '(22) 91234-5678',
     },
     {
       name: 'Bob Johnson',
       nextBillDate: new Date(2024, 8, 5),
-      plan: 'Standard',
+      plan: '200MB/S - $150',
       email: 'bob.johnson@example.com',
+      CPF: '111.222.333-44',
+      phone: '(33) 95555-4444',
     },
   ];
 

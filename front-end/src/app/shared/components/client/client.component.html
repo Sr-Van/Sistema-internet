@@ -15,6 +15,12 @@
           clientName()
         }}</span>
         <span class="text-sm text-gray-500 truncate">{{ clientEmail() }}</span>
+        <span class="text-sm text-gray-500 truncate"
+          >CPF: {{ clientCPF() }}</span
+        >
+        <span class="text-sm text-gray-500 truncate"
+          >Phone: {{ clientPhone() }}</span
+        >
       </div>
     </div>
 
@@ -46,18 +52,25 @@
       >
         {{ clientName()[0] | uppercase }}
       </div>
+    </div>
+
+    <div class="flex flex-col mb-4">
+      <span class="text-lg font-bold text-gray-900 truncate">{{
+        clientName()
+      }}</span>
+      <span class="text-sm text-gray-500 truncate">{{ clientEmail() }}</span>
+      <span class="text-sm text-gray-500 truncate">CPF: {{ clientCPF() }}</span>
+      <span class="text-sm text-gray-500 truncate"
+        >Phone: {{ clientPhone() }}</span
+      >
+    </div>
+
+    <div class="mb-5">
       <span
         class="px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200"
       >
         {{ clientPlan() }}
       </span>
-    </div>
-
-    <div class="flex flex-col mb-5">
-      <span class="text-lg font-bold text-gray-900 truncate">{{
-        clientName()
-      }}</span>
-      <span class="text-sm text-gray-500 truncate">{{ clientEmail() }}</span>
     </div>
 
     <div

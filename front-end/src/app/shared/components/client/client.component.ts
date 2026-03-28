@@ -15,4 +15,6 @@ export class ClientComponent {
   nextBillDate = input.required<string | Date>();
   clientPlan = input.required<string>();
   clientEmail = input.required<string>();
+  clientCPF = input.required<string>();
+  clientPhone = input.required<string>();
 }
