@@ -1,5 +1,5 @@
 import { DatePipe, UpperCasePipe } from '@angular/common';
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 
 @Component({
   selector: 'app-client',
@@ -17,4 +17,6 @@ export class ClientComponent {
   clientEmail = input.required<string>();
   clientCPF = input.required<string>();
   clientPhone = input.required<string>();
+
+  clientClick = output<void>();
 }
