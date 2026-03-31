@@ -1,6 +1,5 @@
 <div class="p-6">
   <div class="flex items-center mb-4">
-    <span class="text-xl font-bold text-indigo-600 mr-3">1.</span>
     <h2 class="text-2xl font-semibold text-gray-800">
       Ordem de Serviço {{ orderNumber() }}
     </h2>
@@ -11,19 +10,24 @@
   <div class="flex justify-between items-center text-sm text-gray-500">
     <span
       >Status:
-      <span class="font-medium text-green-600">{{ status() }}</span></span
+      <span
+        class="font-medium"
+        [class.text-green-600]="status() === 'Concluida'"
+        >{{ status() }}</span
+      ></span
     >
     <span>Data: {{ date() }}</span>
   </div>
   <div class="flex justify-between items-center text-sm text-gray-500">
     <span
-      ><span class="font-medium text-green-600">{{ technician() }}</span></span
+      >Técnico:
+      <span class="font-medium text-gray-700">{{ technician() }}</span></span
     >
     <span>Cliente: {{ clientName() }}</span>
   </div>
   <button
     class="mt-6 w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 transition-colors duration-300"
   >
-    Ver Detalhes
+    Detalhes
   </button>
 </div>

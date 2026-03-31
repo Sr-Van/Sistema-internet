@@ -1,7 +1,13 @@
 <ol class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-  <app-order
-    class="block bg-white rounded-lg shadow-md transition-shadow duration-300 overflow-hidden"
-    clientName="Fulano"
-    status="Concluida"
-  ></app-order>
+  @for (order of serviceOrders; track order) {
+    <app-order
+      class="block bg-white rounded-lg shadow-md transition-shadow duration-300 overflow-hidden"
+      [clientName]="order.clientName"
+      [status]="order.status"
+      [technician]="order.technician"
+      [orderNumber]="order.orderNumber"
+      [description]="order.description"
+      [date]="order.date"
+    ></app-order>
+  }
 </ol>
