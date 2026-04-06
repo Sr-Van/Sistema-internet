@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -15,4 +15,6 @@ export class OrderComponent {
   public status = input<string>();
   public clientName = input<string>();
   public date = input<string>();
+
+  public detailsClick = output<void>();
 }
