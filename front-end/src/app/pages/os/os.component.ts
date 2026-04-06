@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { CommonModule } from '@angular/common';
 
 export interface ServiceOrder {
-  orderNumber: number;
+  orderNumber?: number;
   clientName: string;
   technician: string;
   status: string;
@@ -24,6 +24,7 @@ export interface ServiceOrder {
 })
 export class OsComponent {
   public isModalOpen = false;
+  public isNewOrder = false;
   public selectedOrder: ServiceOrder | null = null;
   public orderForm: FormGroup;
 
@@ -105,6 +106,7 @@ export class OsComponent {
 
   constructor(private fb: FormBuilder) {
     this.orderForm = this.fb.group({
+      clientName: [''],
       description: ['', Validators.required],
       status: ['', Validators.required],
       technician: [''],
@@ -113,6 +115,7 @@ export class OsComponent {
   }
 
   public openModal(order: ServiceOrder) {
+    this.isNewOrder = false;
     this.selectedOrder = order;
     this.orderForm.patchValue({
       description: order.description,
@@ -123,24 +126,57 @@ export class OsComponent {
     this.isModalOpen = true;
   }
 
+  public openCreateModal() {
+    this.isNewOrder = true;
+    this.selectedOrder = null;
+    this.orderForm.reset({
+      status: 'Pendente',
+      date: new Date().toISOString().split('T')[0],
+    });
+    this.isModalOpen = true;
+  }
+
   public closeModal() {
     this.isModalOpen = false;
+    this.isNewOrder = false;
     this.selectedOrder = null;
     this.orderForm.reset();
   }
 
   public saveChanges() {
-    if (this.orderForm.valid && this.selectedOrder) {
-      const updatedData = this.orderForm.value;
-      const orderIndex = this.serviceOrders.findIndex(
-        (o) => o.orderNumber === this.selectedOrder!.orderNumber,
-      );
-      if (orderIndex > -1) {
-        this.serviceOrders[orderIndex] = {
-          ...this.serviceOrders[orderIndex],
-          ...updatedData,
+    if (this.orderForm.valid) {
+      const formData = this.orderForm.value;
+
+      if (this.isNewOrder) {
+        const newOrderNumber = this.serviceOrders.length > 0
+          ? Math.max(...this.serviceOrders.map(o => o.orderNumber!)) + 1
+          : 1;
+
+        const newOrder: ServiceOrder = {
+          orderNumber: newOrderNumber,
+          description: formData.description,
+          status: formData.status,
+          technician: formData.technician,
+          date: formData.date,
+          clientName: '',
+          clientCPF: '',
+          clientPhone: '',
+          clientAddress: '',
         };
+
+        this.serviceOrders.push(newOrder);
+      } else if (this.selectedOrder) {
+        const orderIndex = this.serviceOrders.findIndex(
+          (o) => o.orderNumber === this.selectedOrder!.orderNumber,
+        );
+        if (orderIndex > -1) {
+          this.serviceOrders[orderIndex] = {
+            ...this.serviceOrders[orderIndex],
+            ...formData,
+          };
+        }
       }
+
       this.closeModal();
     }
   }
