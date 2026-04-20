@@ -1,13 +1,13 @@
 <div id="buttons" class="flex justify-end mb-4">
   <div
-    class="inline-flex bg-gray-50 border border-gray-200 rounded-full p-1 shadow-sm"
+    class="inline-flex bg-dark-100 border border-dark-200 rounded-full p-1 shadow-sm"
   >
     <button
       class="px-4 py-1.5 text-sm font-medium rounded-full transition-colors"
       [class]="
         !isListView
-          ? 'bg-gray-200 text-gray-900 shadow-sm'
-          : 'text-gray-500 hover:text-gray-700 hover:bg-gray-100'
+          ? 'bg-dark-300 text-dark-900 shadow-sm'
+          : 'text-dark-400 hover:text-dark-600 hover:bg-dark-200'
       "
       (click)="isListView = false"
     >
@@ -17,8 +17,8 @@
       class="px-4 py-1.5 text-sm font-medium rounded-full transition-colors"
       [class]="
         isListView
-          ? 'bg-gray-200 text-gray-900 shadow-sm'
-          : 'text-gray-500 hover:text-gray-700 hover:bg-gray-100'
+          ? 'bg-dark-300 text-dark-900 shadow-sm'
+          : 'text-dark-400 hover:text-dark-600 hover:bg-dark-200'
       "
       (click)="isListView = true"
     >
@@ -50,63 +50,63 @@
 <!-- Modal -->
 @if (isModalOpen && selectedClient) {
   <div
-    class="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-gray-600 bg-opacity-50"
+    class="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-primary-900/70"
     (click)="closeModal()"
   >
     <div
-      class="relative mx-auto w-full max-w-lg rounded-md border bg-white p-5 shadow-lg"
+      class="relative mx-auto w-full max-w-lg rounded-md border border-primary-200 bg-white p-5 shadow-lg"
       (click)="$event.stopPropagation()"
     >
       <div class="mt-3 text-center">
-        <h3 class="text-lg font-medium leading-6 text-gray-900">
+        <h3 class="text-lg font-medium leading-6 text-dark-900">
           Edit Client Information
         </h3>
         <div class="mt-2 px-7 py-3">
           <form [formGroup]="clientForm" (ngSubmit)="saveChanges()">
             <div class="mb-4 text-left">
-              <label for="name" class="block text-sm font-medium text-gray-700"
+              <label for="name" class="block text-sm font-medium text-dark-700"
                 >Name</label
               >
               <input
                 type="text"
                 id="name"
                 formControlName="name"
-                class="mt-1 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                class="mt-1 block w-full rounded-md border border-dark-400 bg-white px-3 py-2 shadow-sm focus:border-primary-500 focus:outline-none focus:ring-primary-500 sm:text-sm"
               />
             </div>
 
             <div class="mb-4 text-left">
-              <label for="email" class="block text-sm font-medium text-gray-700"
+              <label for="email" class="block text-sm font-medium text-dark-600"
                 >Email</label
               >
               <input
                 type="email"
                 id="email"
                 formControlName="email"
-                class="mt-1 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                class="mt-1 block w-full rounded-md border border-dark-400 bg-white px-3 py-2 shadow-sm focus:border-primary-500 focus:outline-none focus:ring-primary-500 sm:text-sm"
               />
             </div>
 
             <div class="mb-4 text-left">
-              <label for="phone" class="block text-sm font-medium text-gray-700"
+              <label for="phone" class="block text-sm font-medium text-dark-600"
                 >Phone</label
               >
               <input
                 type="text"
                 id="phone"
                 formControlName="phone"
-                class="mt-1 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                class="mt-1 block w-full rounded-md border border-dark-400 bg-white px-3 py-2 shadow-sm focus:border-primary-500 focus:outline-none focus:ring-primary-500 sm:text-sm"
               />
             </div>
 
             <div class="mb-4 text-left">
-              <label for="plan" class="block text-sm font-medium text-gray-700"
+              <label for="plan" class="block text-sm font-medium text-dark-600"
                 >Plan</label
               >
               <select
                 id="plan"
                 formControlName="plan"
-                class="mt-1 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                class="mt-1 block w-full rounded-md border border-dark-400 bg-white px-3 py-2 shadow-sm focus:border-primary-500 focus:outline-none focus:ring-primary-500 sm:text-sm"
               >
                 @for (plan of planOptions; track plan) {
                   <option [value]="plan">{{ plan }}</option>
@@ -114,16 +114,16 @@
               </select>
             </div>
 
-            <div class="mb-4 rounded-md bg-gray-50 p-3 text-left">
-              <p class="text-sm text-gray-500">
-                <span class="font-medium text-gray-700">CPF:</span>
+            <div class="mb-4 rounded-md bg-dark-100 p-3 text-left">
+              <p class="text-sm text-dark-400">
+                <span class="font-medium text-dark-600">CPF:</span>
                 {{ selectedClient.CPF }}
               </p>
             </div>
 
-            <div class="mb-6 rounded-md bg-gray-50 p-3 text-left">
-              <p class="text-sm text-gray-500">
-                <span class="font-medium text-gray-700">Next Bill:</span>
+            <div class="mb-6 rounded-md bg-dark-100 p-3 text-left">
+              <p class="text-sm text-dark-400">
+                <span class="font-medium text-dark-600">Next Bill:</span>
                 {{ selectedClient.nextBillDate | date: "MMM d, yyyy" }}
               </p>
             </div>
@@ -132,14 +132,14 @@
               <button
                 type="button"
                 (click)="closeModal()"
-                class="rounded-md bg-gray-200 px-4 py-2 text-gray-800 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
+                class="rounded-md bg-dark-300 px-4 py-2 text-dark-800 hover:bg-dark-400 focus:outline-none focus:ring-2 focus:ring-dark-400 focus:ring-offset-2"
               >
                 Cancel
               </button>
               <button
                 type="submit"
                 [disabled]="clientForm.invalid"
-                class="rounded-md bg-indigo-600 px-4 py-2 text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:bg-indigo-300"
+                class="rounded-md bg-primary-500 px-4 py-2 text-white hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:bg-primary-400"
               >
                 Save Changes
               </button>
