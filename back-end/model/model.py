@@ -4,6 +4,9 @@ class Database:
   def __init__(self, db_connection):
     self.conn = db_connection
     self.cursor = self.conn.cursor()
+    self.create_clients_table()
+    self.create_technicians_table()
+    self.create_service_orders_table()
     print("Database initialized with connection.")
   
   def get_connection(self):
@@ -16,9 +19,13 @@ class Database:
       CREATE TABLE IF NOT EXISTS clients (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         nome TEXT NOT NULL,
+        email TEXT NOT NULL,
+        CPF TEXT NOT NULL,
+        numero INTEGER NOT NULL,
         plano TEXT NOT NULL
       )
     ''')
+    
     self.conn.commit()
     print("Table 'clients' created or already exists.")
 
@@ -48,6 +55,17 @@ class Database:
     self.conn.commit()
     print("Table 'service_orders' created or already exists.")
 
+  def add_client(self, nome, email, CPF, numero, plano):
+    with self.get_connection() as conn:
+      cursor = conn.cursor()
+      cursor.execute('''
+        INSERT INTO clients (nome, email, CPF, numero, plano)
+        VALUES (?, ?, ?, ?, ?)
+      ''', (nome, email, CPF, numero, plano))
+      conn.commit()
+      print(f"Database: Added client '{nome}' with ID {cursor.lastrowid}.")
+      return cursor.lastrowid
+    
   def get_all_orders(self):
     with self.get_connection() as conn:
       cursor = conn.cursor()
